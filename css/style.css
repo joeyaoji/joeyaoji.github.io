@@ -1,0 +1,14 @@
+.steps  {
+    visibility: hidden;
+}
+#navlist li
+{
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}
+.bottom {
+   position: relative;
+   left:0px;
+   bottom: 10%;
+}
