@@ -106,29 +106,36 @@
   </div>   
   <script>
     $( document ).ready(function() {
-      $('#stepTabs a').click(function (e) {
-        e.preventDefault()
-        $(this).tab('show')
-      });
-      $("#start_button").click(function (e) {
-        e.preventDefault();
-        $('#stepTabs a[href="#step1"]').tab('show');
-      });
-      $("#step1_button").click(function (e) {
-        e.preventDefault();
-        $('#stepTabs a[href="#step2"]').tab('show');
-      });
-      $("#auth_url").click(function (e) {
-         e.preventDefault();
-         ck = $('#client_id').val();
-         if (ck) {
-            auth_url = "https://api.login.yahoo.com/oauth2/request_auth?client_id=" + ck + "&response_type=id_token&redirect_uri=https://openid-connect.herokuapp.com&scope=openid,mail-r&nonce=12345";            
-            auth_url_link = "<a href='" + auth_url + "'>" + auth_url + "</a>";
-            $("#auth_url_text").html(auth_url_link);
-         } else {
-           $(this).popover('show');
-         } 
-      });
+      if ($.url().param()) {
+        $("#step2_button").click(function (e) {
+           e.preventDefault();
+           $('#stepTabs a[href="#step3"]').tab('show');
+         });
+      } else {
+         $('#stepTabs a').click(function (e) {
+           e.preventDefault()
+           $(this).tab('show')
+         });
+         $("#start_button").click(function (e) {
+           e.preventDefault();
+           $('#stepTabs a[href="#step1"]').tab('show');
+         });
+         $("#step1_button").click(function (e) {
+           e.preventDefault();
+           $('#stepTabs a[href="#step2"]').tab('show');
+         });
+         $("#auth_url").click(function (e) {
+            e.preventDefault();
+            ck = $('#client_id').val();
+            if (ck) {
+               auth_url = "https://api.login.yahoo.com/oauth2/request_auth?client_id=" + ck + "&response_type=id_token&redirect_uri=https://openid-connect.herokuapp.com&scope=openid,mail-r&nonce=12345";            
+               auth_url_link = "<a href='" + auth_url + "'>" + auth_url + "</a>";
+               $("#auth_url_text").html(auth_url_link);
+            } else {
+              $(this).popover('show');
+            } 
+         });
+      }
    });
   </script>
   </div>
