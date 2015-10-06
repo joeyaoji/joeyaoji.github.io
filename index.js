@@ -1,11 +1,9 @@
-var express = require('express'),
-var app = express();
-var http = require('http');
-var httpServer = http.Server(app);
+express = require('express'),
+app = express();
+http = require('http');
+httpServer = http.Server(app);
 
-app.use(express.static(__dirname+'/css'));
-app.use(express.static(__dirname+'/js'));
-app.use(express.static(__dirname+'/img'));
+app.use(express.static(__dirname+'/static'));
 
 app.get('/', function(req, res){
     res.sendfile(__dirname + '/index.html');
