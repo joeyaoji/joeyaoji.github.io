@@ -109,10 +109,7 @@
       var currentURL = window.location.href;
       uri_components = currentURL.split("#"); 
       if (uri_components.length>1) {
-        $("#step2_button").click(function (e) {
-           e.preventDefault();
-           $('#stepTabs a[href="#step3"]').tab('show');
-         });
+         $('#stepTabs a[href="#step3"]').tab('show');
       } else {
          $('#stepTabs a').click(function (e) {
            e.preventDefault()
