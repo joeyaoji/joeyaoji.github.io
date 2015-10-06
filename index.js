@@ -1,6 +1,6 @@
 express = require('express'),
 app = express();
-app.set('port', (process.env PORT || 5000));
+app.set('port', (process.env.PORT || 5000));
 http = require('http');
 httpServer = http.Server(app);
 
