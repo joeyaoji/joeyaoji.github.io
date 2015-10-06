@@ -47,7 +47,7 @@
         <header><h2>Step 1: Create Application</h2></header>
         <ol>
           <li><a href="https://developer.yahoo.com/apps/create/">Create a YDN application</a></li>
-          <li>Use the following callback URL <code>https://zhouyaoji.github.io/openid_connect_example/index.html</code>.
+          <li>Use the following callback URL <code>https://openid-connect.herokuapp.com</code>.
               <p>Once you've created your application, you will be given a
                  Consumer Key and Consumer Secret. We'll be using these in 
                  the next step.</p>
@@ -122,7 +122,7 @@
          e.preventDefault();
          ck = $('#client_id').val();
          if (ck) {
-            auth_url = "https://api.login.yahoo.com/oauth2/request_auth?client_id=" + ck + "&response_type=id_token&redirect_uri=https://zhouyaoji.github.io/openid_connect_example/&scope=openid,mail-r&nonce=12345";            
+            auth_url = "https://api.login.yahoo.com/oauth2/request_auth?client_id=" + ck + "&response_type=id_token&redirect_uri=https://openid-connect.herokuapp.com&scope=openid,mail-r&nonce=12345";            
             auth_url_link = "<a href='" + auth_url + "'>" + auth_url + "</a>";
             $("#auth_url_text").html(auth_url_link);
          } else {
