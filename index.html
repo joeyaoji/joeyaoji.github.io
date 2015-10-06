@@ -106,7 +106,9 @@
   </div>   
   <script>
     $( document ).ready(function() {
-      if ($.url().param()) {
+      var currentURL = window.location.href;
+      uri_components = currentURL.split("#"); 
+      if (uri_components.length>1) {
         $("#step2_button").click(function (e) {
            e.preventDefault();
            $('#stepTabs a[href="#step3"]').tab('show');
