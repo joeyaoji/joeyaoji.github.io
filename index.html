@@ -127,7 +127,7 @@
          $('#stepTabs a[href="#step3"]').tab('show');
          var token = "#" + uri_components[1];
          var parts = token.split("&"); 
-         var id_token - parts[0];
+         var id_token = parts[0];
          var parts_string = parts.join("\n"); 
          $('#id_token').html(parts_string); 
          $("#decode_token").click(function (e) {
