@@ -85,7 +85,7 @@
         <p>You'll see the Token ID in the URL path. It's a URL fragment that starts with a hash.</p>
         <p>Here's the ID Token formatted for you:</p>
         <p>
-           <textarea cols="200" rows="20">
+           <textarea id="id_token" cols="200" rows="20">
            </textarea>
        </p>
        <div class="progress">
@@ -107,9 +107,11 @@
   <script>
     $( document ).ready(function() {
       var currentURL = window.location.href;
-      uri_components = currentURL.split("#"); 
+      var uri_components = currentURL.split("#"); 
       if (uri_components.length>1) {
          $('#stepTabs a[href="#step3"]').tab('show');
+         var token = uri_components[1];
+         $('#id_token).html(token); 
       } else {
          $('#stepTabs a').click(function (e) {
            e.preventDefault()
