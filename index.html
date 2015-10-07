@@ -57,8 +57,8 @@
           </li>
         </ol>
          <div class="progress">
-           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%">
-             <span class="sr-only">33% Complete</span>
+           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+             <span class="sr-only">25% Complete</span>
            </div>
          </div>
       </article>
@@ -75,8 +75,8 @@
        <p>You'll be taken to the Yahoo <b>Consent Screen</b>, and after you click **Accept**, you'll
           be taken back here.</p>
         <div class="progress">
-         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%">
-           <span class="sr-only">66% Complete</span>
+         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+           <span class="sr-only">50% Complete</span>
          </div>
         </div>
       </article> 
@@ -89,11 +89,24 @@
            </textarea>
        </p>
        <div class="progress">
+         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+           <span class="sr-only">75% Complete</span>
+         </div>
+       </div>
+     </article> 
+     <article id="step4" role="tabpanel" class="tab-pane">
+        <header><h2>Step 4: Decode ID Token</h2></header>
+        <p>The ID Token after it has been decoded:</p>
+        <p>
+           <textarea id="id_token_decoded" cols="200" rows="20">
+           </textarea>
+       </p>
+       <div class="progress">
          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
            <span class="sr-only">100% Complete</span>
          </div>
        </div>
-     </article> 
+     </article>
    </section>  
     <footer class="navbar navbar-default navbar-fixed-bottom"> 
       <div class="container">
@@ -110,7 +123,9 @@
       var uri_components = currentURL.split("#"); 
       if (uri_components.length>1) {
          $('#stepTabs a[href="#step3"]').tab('show');
-         var token = uri_components[1];
+         var token = "#" + uri_components[1];
+         var parts = token.split("&"); 
+         var parts_string = parts.join("\n")
          $('#id_token').html(token); 
       } else {
          $('#stepTabs a').click(function (e) {
