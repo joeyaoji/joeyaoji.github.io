@@ -89,6 +89,7 @@
            <textarea id="id_token" cols="600" rows="10">
            </textarea>
        </p>
+         <p><button class="btn btn-default" type="button" id="decode_token">Decode the ID TOken</button></p>
        <div class="progress">
          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
            <span class="sr-only">75% Complete</span>
@@ -126,8 +127,14 @@
          $('#stepTabs a[href="#step3"]').tab('show');
          var token = "#" + uri_components[1];
          var parts = token.split("&"); 
+         var id_token - parts[0];
          var parts_string = parts.join("\n"); 
          $('#id_token').html(parts_string); 
+         $("#decode_token").click(function (e) {
+           e.preventDefault();
+           $('#stepTabs a[href="#step4"]').tab('show');
+            $('#id_token_decoded').html(id_token);
+         }); 
       } else {
          $('#stepTabs a').click(function (e) {
            e.preventDefault()
