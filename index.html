@@ -160,8 +160,9 @@
             alert(JSON.stringify(atob(token_parts[0])));
             alert(JSON.stringify(atob(token_parts[1])));
             alert(JSON.stringify(atob(token_parts[2])));
+            decoded_id_token = JSON.stringify(atob(token_parts[0])) + JSON.stringify(atob(token_parts[1])) + JSON.stringify(atob(token_parts[2]));
             //decoded_id_token = atob(token_parts[0]) + atob(token_parts[1]) + atob(token_parts[2]);
-           //$('#id_token_decoded').html(decoded_id_token);
+            $('#id_token_decoded').html(decoded_id_token);
          });
       } else {
          $('#stepTabs a').click(function (e) {
