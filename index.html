@@ -159,6 +159,7 @@
             alert(token_parts[2]);
             alert(JSON.stringify(atob(token_parts[0])));
             alert(JSON.stringify(atob(token_parts[1])));
+            alert(token_parts.length);
             alert(JSON.stringify(atob(token_parts[2])));
             decoded_id_token = JSON.stringify(atob(token_parts[0])) + JSON.stringify(atob(token_parts[1])) + JSON.stringify(atob(token_parts[2]));
             //decoded_id_token = atob(token_parts[0]) + atob(token_parts[1]) + atob(token_parts[2]);
