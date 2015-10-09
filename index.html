@@ -89,7 +89,7 @@
            <textarea id="id_token" cols="600" rows="10">
            </textarea>
        </p>
-         <p><button class="btn btn-default" type="button" id="decode_token">Decode the ID TOken</button></p>
+         <p><button class="btn btn-default" type="button" id="decode_token">Let's Decode the ID Token</button></p>
        <div class="progress">
          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
            <span class="sr-only">75% Complete</span>
@@ -98,10 +98,22 @@
      </article> 
      <article id="step4" role="tabpanel" class="tab-pane">
         <header><h2>Step 4: Decode ID Token</h2></header>
-        <p>The ID Token after it has been decoded:</p>
         <p>
-           <textarea id="id_token_decoded" cols="200" rows="20">
+         <ol>
+          <li>The ID Token in it's raw form:
+        <p>
+           <textarea id="id_token_raw" cols="200" rows="20">
            </textarea>
+       </p>
+       </li>
+       <li>The ID Token is in the following format: <pre>Base64(JOSE header).Base64(Payload).Base64(Signature)</pre>
+         <p><button class="btn btn-default" type="button" id="decode_raw_token">Decode the Raw Token</button></p>
+          <p>
+           <textarea id="id_token_decoded" cols="200" rows="10">
+           </textarea>
+          </p>
+        </li>
+       </ol>
        </p>
        <div class="progress">
          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
@@ -130,11 +142,17 @@
          var id_token = parts[0];
          var parts_string = parts.join("\n"); 
          $('#id_token').html(parts_string); 
+          
          $("#decode_token").click(function (e) {
            e.preventDefault();
            $('#stepTabs a[href="#step4"]').tab('show');
-            $('#id_token_decoded').html(id_token);
+           $('#id_token_raw').html(id_token);
          }); 
+         $("#decode_raw_token").click(function (e) {
+           token_parts = id_token.split('.')
+            decoded_id_token = atob(token_parts[0]) + atob(token_parts[1]) + atob(token_parts[2]);
+           $('#id_token_decoded').html(decoded_id_token);
+         });
       } else {
          $('#stepTabs a').click(function (e) {
            e.preventDefault()
