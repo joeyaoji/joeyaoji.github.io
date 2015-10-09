@@ -149,8 +149,9 @@
            $('#id_token_raw').html(id_token);
          }); 
          $("#decode_raw_token").click(function (e) {
-           token_parts = id_token.split('.')
-            decoded_id_token = atob(token_parts[0]) + atob(token_parts[1]) + atob(token_parts[2]);
+            token_param = id_token.split('=')
+            token_str = token_param[1] 
+            decoded_id_token = atob(token_str[0]) + atob(token_str[1]) + atob(token_str[2]);
            $('#id_token_decoded').html(decoded_id_token);
          });
       } else {
