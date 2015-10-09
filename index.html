@@ -153,9 +153,7 @@
             token_param = id_token.split('=');
             token_str = token_param[1];
             token_parts = token_str.split("."); 
-            decoded_id_token = JSON.stringify(atob(token_parts[0])) + JSON.stringify(atob(token_parts[1])); 
-            json_obj = JSON.parse(decoded_id_token);
-            alert(json_obj);
+            decoded_id_token = atob(token_parts[0]) + atob(token_parts[1]); 
             var signature = token_parts[2];
             $('#id_token_decoded').html(decoded_id_token);
             alert("Signature: " + signature);
