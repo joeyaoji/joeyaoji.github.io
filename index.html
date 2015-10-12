@@ -38,8 +38,8 @@
         <p>We'll be going through three steps to complete the authentication.</p>
          <p><button class="btn btn-default" type="button" id="start_button">Let's Get Started</button></p>
 
-        <div class="progress bottom">
-           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%">
+        <div class="progress progress-striped-active bottom">
+           <div class="progress-bar" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%">
              <span class="sr-only">5% Complete</span>
            </div>
          </div>
@@ -57,8 +57,8 @@
               <p><button onclick="" class="btn btn-default" type="button" id="step1_button">Let's Go to Step 2!</button></p>
           </li>
         </ol>
-         <div class="progress">
-           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+         <div class="progress progress-striped-active bottom">
+           <div class="progress-bar" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
              <span class="sr-only">25% Complete</span>
            </div>
          </div>
@@ -75,8 +75,8 @@
        <span id="auth_url_text"></span>
        <p>You'll be taken to the Yahoo <b>Consent Screen</b>, and after you click **Accept**, you'll
           be taken back here.</p>
-        <div class="progress">
-         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+        <div class="progress progress-striped-active bottom">
+         <div class="progress-bar" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
            <span class="sr-only">50% Complete</span>
          </div>
         </div>
@@ -86,12 +86,12 @@
         <p>You'll see the Token ID in the URL path. It's a URL fragment that starts with a hash.</p>
         <p>Here's the ID Token formatted for you:</p>
         <p>
-           <textarea id="id_token" cols="600" rows="10">
+           <textarea id="id_token" cols="800" rows="10">
            </textarea>
        </p>
          <p><button class="btn btn-default" type="button" id="decode_token">Let's Decode the ID Token</button></p>
-       <div class="progress">
-         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+       <div class="progress progress-striped-active bottom">
+         <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
            <span class="sr-only">75% Complete</span>
          </div>
        </div>
@@ -102,21 +102,21 @@
          <ol>
           <li>The ID Token in it's raw form:
         <p>
-           <textarea id="id_token_raw" cols="200" rows="20">
+           <textarea id="id_token_raw" cols="800" rows="20">
            </textarea>
        </p>
        </li>
        <li>The ID Token is in the following format: <pre>Base64(JOSE header).Base64(Payload).Base64(Signature)</pre>
          <p><button class="btn btn-default" type="button" id="decode_raw_token">Decode the Raw Token</button></p>
           <p>
-           <textarea id="id_token_decoded" cols="200" rows="10">
+           <textarea id="id_token_decoded" cols="800" rows="10">
            </textarea>
           </p>
         </li>
        </ol>
        </p>
-       <div class="progress">
-         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+       <div class="progress progress-striped active bottom">
+         <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
            <span class="sr-only">100% Complete</span>
          </div>
        </div>
@@ -146,17 +146,16 @@
          $("#decode_token").click(function (e) {
            e.preventDefault();
            $('#stepTabs a[href="#step4"]').tab('show');
+           id_token = JSON.stringify(id_token, null, 2); 
            $('#id_token_raw').html(id_token);
          }); 
          $("#decode_raw_token").click(function (e) {
-            alert(id_token);
             token_param = id_token.split('=');
             token_str = token_param[1];
             token_parts = token_str.split("."); 
             decoded_id_token = atob(token_parts[0]) + atob(token_parts[1]); 
             var signature = token_parts[2];
             $('#id_token_decoded').html(decoded_id_token);
-            alert("Signature: " + signature);
          });
       } else {
          $('#stepTabs a').click(function (e) {
