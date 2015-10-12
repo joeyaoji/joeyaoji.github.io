@@ -31,7 +31,7 @@
     </nav>
    </section>
    <section class="tab-content panel panel-default">
-      <article id="intro" role="tabpanel" class="tab-pane active panel-body">
+      <article id="intro" role="tabpanel" class="tab-panel active panel-body">
         <header><h2>Welcome to the Yahoo OpenID Connect Tutorial</h2></header>
         <p>We'll be going through three steps to complete the authentication.</p>
          <p><button class="btn btn-default" type="button" id="start_button">Let's Get Started</button></p>
@@ -42,7 +42,7 @@
              </div>
           </div>
       </article>
-      <article id="step1" role="tabpanel" class="tab-pane panel-body">
+      <article id="step1" role="tabpanel" class="tab-panel panel-body">
         <header><h2>Step 1: Create Application</h2></header>
         <ol>
           <li><a href="https://developer.yahoo.com/apps/create/">Create a YDN application</a></li>
@@ -61,7 +61,7 @@
             </div>
           </div>
       </article>
-      <article id="step2" role="tabpanel" class="tab-pane panel-body">
+      <article id="step2" role="tabpanel" class="tab-panel panel-body">
         <header><h2>Step 2: Create Auth URL</h2></header>
         <p>Enter your Consumer Key in the field below:</p>
         <p>
@@ -99,19 +99,19 @@
         <p>
          <ol>
           <li>The ID Token in it's raw form:
-        <p>
-           <textarea id="id_token_raw" cols="800" rows="20">
-           </textarea>
-       </p>
-       </li>
-       <li>The ID Token is in the following format: <pre>Base64(JOSE header).Base64(Payload).Base64(Signature)</pre>
-         <p><button class="btn btn-default" type="button" id="decode_raw_token">Decode the Raw Token</button></p>
-          <p>
-           <textarea id="id_token_decoded" cols="800" rows="10">
-           </textarea>
-          </p>
-        </li>
-       </ol>
+            <p>
+             <textarea id="id_token_raw" cols="800" rows="20">
+             </textarea>
+            </p>
+          </li>
+          <li>The ID Token is in the following format: <pre>Base64(JOSE header).Base64(Payload).Base64(Signature)</pre>
+           <p><button class="btn btn-default" type="button" id="decode_raw_token">Decode the Raw Token</button></p>
+           <p>
+             <textarea id="id_token_decoded" cols="800" rows="10">
+             </textarea>
+            </p>
+          </li>
+         </ol>
        </p>
          <div class="progress">
            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
