@@ -31,7 +31,7 @@
     </nav>
    </section>
    <section class="tab-content panel panel-default">
-      <article id="intro" role="tabpanel" class="tab-pane active panel-body" id="intro">
+      <article id="intro" role="tabpanel" class="tab-pane active panel-body">
         <header><h2>Welcome to the Yahoo OpenID Connect Tutorial</h2></header>
         <p>We'll be going through three steps to complete the authentication.</p>
          <p><button class="btn btn-default" type="button" id="start_button">Let's Get Started</button></p>
@@ -79,7 +79,7 @@
            </div>
          </div>
       </article> 
-      <article id="step3" role="tabpanel" class="tab-pane">
+      <article id="step3" role="tabpanel" class="tab-panel">
         <header><h2>Step 3: Get ID Token</h2></header>
         <p>You'll see the Token ID in the URL path. It's a URL fragment that starts with a hash.</p>
         <p>Here's the ID Token from the URI fragment:</p>
@@ -94,7 +94,7 @@
            </div>
          </div>
      </article> 
-     <article id="step4" role="tabpanel" class="tab-pane">
+     <article id="step4" role="tabpanel" class="tab-panel">
         <header><h2>Step 4: Decode ID Token</h2></header>
         <p>
          <ol>
@@ -128,7 +128,6 @@
         </ul>
       </div>
     </footer>
-  </div>   
   <script>
     $( document ).ready(function() {
       var currentURL = window.location.href;
