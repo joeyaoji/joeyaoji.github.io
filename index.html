@@ -165,11 +165,15 @@
             token_param = id_token.split('=');
             token_str = token_param[1];
             token_parts = token_str.split("."); 
-            decoded_id_token = atob(token_parts[0]) + atob(token_parts[1]); 
-            decode_id_token_json = JSON.parse(decoded_id_token);
-            decode_id_token_str = JSON.stringify(decode_id_token_json, null, 4);
-            var signature = token_parts[2];
-            $('#id_token_decoded').html(decode_id_token_str);
+            jose_head = atob(token_parts[0]);
+            payload = atob(token_parts[1]);
+            signature = token_parts[2];
+            jose_head_json = JSON.parse(jose_head);
+            payload_json = JSON.parse(payload);
+            jose_head_str = JSON.stringify(jose_head_json, null, 4);
+            payload_str = JSON.stringify(payload_json, null, 4);
+            decoded_id_token_str = jose_head_str + "\n" + payload_str;
+            $('#id_token_decoded').html(decoded_id_token_str);
          });
       } else {
          $('#stepTabs a').click(function (e) {
