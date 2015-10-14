@@ -97,7 +97,7 @@
         <p>You'll see the Token ID in the URL path. It's a URL fragment that starts with a hash. The ID Token contains
            <a href="http://openid.net/specs/openid-connect-core-1_0.html#Claims">Claims</a> that provide information about the user who is being authenticated.</p>
         <p>Here's the ID Token from the URI fragment:</p>
-        <div class="col-xs-12">
+        <div class="col-xs-20">
            <textarea id="id_token" class="form-control" cols="800" rows="10">
            </textarea>
         </div>
@@ -113,7 +113,7 @@
         <p>
          <ol>
           <li>The ID Token in it's raw form:
-           <div class="col-xs-12">
+           <div class="col-xs-20">
              <textarea id="id_token_raw" class="form-control" cols="800" rows="10">
              </textarea>
            </div> 
@@ -121,7 +121,7 @@
           <li>The ID Token is in the following format: <pre>Base64(JOSE header).Base64(Payload).Base64(Signature)</pre>
            <p>Click the following button to see your ID Token: <button class="btn btn-default" type="button" id="decode_raw_token">Decode the Raw Token</button></p>
          
-            <div class="col-xs-12">
+            <div class="col-xs-20">
              <textarea id="id_token_decoded" class="form-control" cols="800" rows="10">
              </textarea>
             </div>
@@ -167,7 +167,7 @@
             token_parts = token_str.split("."); 
             decoded_id_token = atob(token_parts[0]) + atob(token_parts[1]); 
             var signature = token_parts[2];
-            $('#id_token_decoded').html(decoded_id_token);
+            $('#id_token_decoded').html(JSON.stringify(decoded_id_token, null, 4));
          });
       } else {
          $('#stepTabs a').click(function (e) {
