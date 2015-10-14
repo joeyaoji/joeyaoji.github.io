@@ -127,7 +127,7 @@
             </div>
             <br/>
              <br/>
-             <span id="signature"><input type="text" id="signature_input"></input></span>
+             <span id="signature"><input type="text" id="signature_input"></input<input type="text" id="signature_input"></input>></span>
           </li>
          </ol>
        </p>
@@ -178,7 +178,7 @@
             decoded_id_token_str = jose_head_str + "\n" + payload_str;
             $('#id_token_decoded').html(decoded_id_token_str);
             $('#signature').html("<b>Sigature:</b> ");
-            $('#signature_input').text(signature);
+            $('#signature_input').val(signature);
          });
       } else {
          $('#stepTabs a').click(function (e) {
