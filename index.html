@@ -166,8 +166,10 @@
             token_str = token_param[1];
             token_parts = token_str.split("."); 
             decoded_id_token = atob(token_parts[0]) + atob(token_parts[1]); 
+            decode_id_token_json = JSON.parse(decoded_id_token);
+            decode_id_token_str = JSON.stringify(decode_id_token_json, null, 4);
             var signature = token_parts[2];
-            $('#id_token_decoded').html(JSON.parse(decoded_id_token));
+            $('#id_token_decoded').html(decode_id_token_str);
          });
       } else {
          $('#stepTabs a').click(function (e) {
