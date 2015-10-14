@@ -20,7 +20,7 @@
 <body>
   <div class="container">
   <section id="navigation">
-    <header><h1>Yahoo OpenID Connect Implicit Flow Example</h1></header>
+    <header><h1>Yahoo OpenID Connect: Implicit Flow Example</h1></header>
     <nav id="stepTabs"> 
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#intro" aria-controls="intro" role="tab" data-toggle="tab">Intro</a></li>
@@ -98,7 +98,7 @@
            <a href="http://openid.net/specs/openid-connect-core-1_0.html#Claims">Claims</a> that provide information about the user who is being authenticated.</p>
         <p>Here's the ID Token from the URI fragment:</p>
         <p>
-           <textarea id="id_token" cols="800" rows="10">
+           <textarea id="id_token" class="text-area" cols="800" rows="10">
            </textarea>
        </p>
        <p><button class="btn btn-default" type="button" id="decode_token">Let's Decode the ID Token</button></p>
@@ -114,14 +114,14 @@
          <ol>
           <li>The ID Token in it's raw form:
             <p>
-             <textarea id="id_token_raw" cols="800" rows="20">
+             <textarea id="id_token_raw" class="input-large" cols="800" rows="10">
              </textarea>
             </p>
           </li>
           <li>The ID Token is in the following format: <pre>Base64(JOSE header).Base64(Payload).Base64(Signature)</pre>
            <p>Click the following button to see your ID Token: <button class="btn btn-default" type="button" id="decode_raw_token">Decode the Raw Token</button></p>
            <p>
-             <textarea id="id_token_decoded" cols="800" rows="10">
+             <textarea id="id_token_decoded" class="input-large" cols="800" rows="10">
              </textarea>
             </p>
           </li>
@@ -158,7 +158,7 @@
            e.preventDefault();
            $('#stepTabs a[href="#step4"]').tab('show');
            id_token = JSON.stringify(id_token, null, 2); 
-           $('#id_token_raw').html(id_token);
+           $('#id_token_raw').text(id_token);
          }); 
          $("#decode_raw_token").click(function (e) {
             token_param = id_token.split('=');
