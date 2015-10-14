@@ -167,7 +167,7 @@
             token_parts = token_str.split("."); 
             decoded_id_token = atob(token_parts[0]) + atob(token_parts[1]); 
             var signature = token_parts[2];
-            $('#id_token_decoded').html(JSON.stringify(decoded_id_token, null, 4));
+            $('#id_token_decoded').html(JSON.parse(decoded_id_token));
          });
       } else {
          $('#stepTabs a').click(function (e) {
