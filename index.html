@@ -124,6 +124,7 @@
             <div class="col-xs-20">
              <textarea id="id_token_decoded" class="form-control" cols="800" rows="10">
              </textarea>
+             <span id="#signature" class="form-control"></span>
             </div>
           </li>
          </ol>
@@ -174,6 +175,7 @@
             payload_str = JSON.stringify(payload_json, null, 4);
             decoded_id_token_str = jose_head_str + "\n" + payload_str;
             $('#id_token_decoded').html(decoded_id_token_str);
+            $('#signature').html("<b<Signature:</b> " + signature);
          });
       } else {
          $('#stepTabs a').click(function (e) {
