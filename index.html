@@ -127,7 +127,7 @@
             </div>
             <br/>
              <br/>
-             <span id="signature"></span>
+             <span id="signature"><input type="text" id="signature_input"></input></span>
           </li>
          </ol>
        </p>
@@ -170,14 +170,15 @@
             token_parts = token_str.split("."); 
             jose_head = atob(token_parts[0]);
             payload = atob(token_parts[1]);
-            signature = "<b>Signature:</b> <input type='text' name='sig'>" + token_parts[2] + "</input>";
+            signature = token_parts[2];
             jose_head_json = JSON.parse(jose_head);
             payload_json = JSON.parse(payload);
             jose_head_str = JSON.stringify(jose_head_json, null, 4);
             payload_str = JSON.stringify(payload_json, null, 4);
             decoded_id_token_str = jose_head_str + "\n" + payload_str;
             $('#id_token_decoded').html(decoded_id_token_str);
-            $('#signature').html(signature);
+            $('#signature').html("<b>Sigature:</b> ");
+            $('#signature_input').text(signature);
          });
       } else {
          $('#stepTabs a').click(function (e) {
