@@ -127,7 +127,7 @@
             </div>
             <br/>
              <br/>
-             <span id="signature"><input type="text" id="signature_input"></input></span>
+             <span id="signature" visibility="hidden"><b>Sigature:</b> <input type="text" id="signature_input"></input></span>
           </li>
          </ol>
        </p>
@@ -177,8 +177,8 @@
             payload_str = JSON.stringify(payload_json, null, 4);
             decoded_id_token_str = jose_head_str + "\n" + payload_str;
             $('#id_token_decoded').html(decoded_id_token_str);
-            $('#signature').html("<b>Singature:</b> ");
             $('#signature_input').val(signature);
+            $('#signature').show();
          });
       } else {
          $('#stepTabs a').click(function (e) {
