@@ -170,7 +170,7 @@
             token_parts = token_str.split("."); 
             jose_head = atob(token_parts[0]);
             payload = atob(token_parts[1]);
-            signature = atob(token_parts[2]);
+            signature = token_parts[2].replace(/\"/, '');
             jose_head_json = JSON.parse(jose_head);
             payload_json = JSON.parse(payload);
             jose_head_str = JSON.stringify(jose_head_json, null, 4);
