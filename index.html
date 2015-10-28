@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yahoo OpenID Connect Example</title>
+  <script language="JavaScript" type="text/javascript"
+        src="http://kjur.github.io/jsrsasign/jsrsasign-latest-all-min.js">
+  </script>
   <script src="js/jquery-2.1.4.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/bootstrap.js"></script>
@@ -28,6 +31,7 @@
         <li role="presentation"><a href="#step2" aria-controls="step2" role="tab" data-toggle="tab">Step 2</a></li>
         <li role="presentation"><a href="#step3" aria-controls="step3" role="tab" data-toggle="tab">Step 3</a></li>
         <li role="presentation"><a href="#step4" aria-controls="step4" role="tab" data-toggle="tab">Step 4</a></li>
+        <li role="presentation"><a href="#step5" aria-controls="step5" role="tab" data-toggle="tab">Step 5</a></li>
       </ul>
     </nav>
    </section>
@@ -137,6 +141,41 @@
            </div>
          </div>
      </article>
+      <article id="step5" role="tabpanel" class="tab-pane panel-body">
+        <header><h2>Step 5: Validate ID Token</h2></header>
+        <p>To validate the ID Token, you need to confirm that the token hasn't expired, the Issuer is Yahoo, the value of <code>aud</code> is the
+           same as your Client ID, and your signature is validated.</p>
+        <p>
+         <ol>
+          <li>Is the issuer <code>https://login.yahoo.com</code> <span id="issuer"></span></li>
+          <li>Does the value of <code>aud</code> match your Client ID? <span id="clientid"></span>
+          <li>Get the public keys:  
+            <div class="col-xs-30">
+             <textarea id="public_keys" class="form-control" cols="800" rows="10">
+             </textarea>
+            </div>
+            <br/>
+             <br/>
+          </li>
+          <li>Our Key: 
+            <div class="col-xs-30">
+             <textarea id="our_key" class="form-control" cols="800" rows="10">
+             </textarea>
+            </div>
+            <br/>
+            <br/>
+          </li>
+          <li>Using the <span id="alg"></span> algorithm, is the JWT valid? <span id="valid_token"></span></li>
+          <li>If <b>YES</b>, congratulations, you can use the Claims!</li>
+         </ol>
+       </p>
+        <div class="progress">
+           <div class="bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+             100%
+           </div>
+         </div>
+     </article>
+
    </section>  
     <footer class="navbar navbar-default navbar-fixed-bottom"> 
       <div class="container">
@@ -180,6 +219,7 @@
             $('#signature_input').val(signature);
             $('#signature').css("visibility", "visible");
          });
+         if
       } else {
          $('#stepTabs a').click(function (e) {
            e.preventDefault()
